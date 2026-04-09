@@ -22,7 +22,7 @@ const Navbar = () => {
           href="#hero"
           className="font-display text-2xl font-bold text-cream tracking-wider"
         >
-          <span className="italic">F</span>abulux
+          <span className="italic">S</span>rujana Jois
         </a>
 
         {/* Desktop Nav */}
