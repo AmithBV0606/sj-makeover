@@ -58,9 +58,15 @@ const HeroSection = () => {
 
             {/* Phone : */}
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full border-2 border-cream/30 flex items-center justify-center">
-                <Phone size={18} className="text-cream" />
-              </div>
+              <Link
+                href="https://wa.me/919986160243"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div className="w-12 h-12 rounded-full border-2 border-cream/30 flex items-center justify-center">
+                  <Phone size={18} className="text-cream" />
+                </div>
+              </Link>
               <div>
                 <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
                   Make Appointment
@@ -83,8 +89,8 @@ const HeroSection = () => {
                 </div>
               </Link>
               <div>
-                <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
-                  Make Appointment
+                <p className="text-cream/60 text-md tracking-[0.15em] font-body">
+                  @makeupbysru
                 </p>
                 <p className="text-cream font-display text-lg">
                   +91 9986160243
