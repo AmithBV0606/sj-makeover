@@ -11,12 +11,12 @@ const HeroSection = () => {
       className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Background Image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-brown-dark">
         <Image
-          src="/hero-model.jpg"
+          src="/new-hero-image.png"
           alt="Fabulux Beauty"
           fill
-          className="object-cover"
+          className="object-cover md:object-fill"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-brown-dark/80 via-brown-dark/50 to-transparent" />
@@ -31,7 +31,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center gap-4 mb-6">
             <span className="section-subtitle text-cream/80">
-              Welcome to Fabulux
+              Welcome to MakeOverBySru
             </span>
             <span className="w-16 h-px bg-cream/40" />
           </div>
@@ -62,7 +62,7 @@ const HeroSection = () => {
                 <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
                   Make Appointment
                 </p>
-                <p className="text-cream font-display text-lg">+123 456 789</p>
+                <p className="text-cream font-display text-lg">+91 9986160243</p>
               </div>
             </div>
           </div>
