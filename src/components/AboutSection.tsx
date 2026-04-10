@@ -25,9 +25,6 @@ const AboutSection = () => {
               work to bring out the best version of you, using premium products
               and cutting-edge techniques.
             </p>
-            <a href="#services" className="btn-outline">
-              About Us
-            </a>
           </motion.div>
 
           {/* Images */}
@@ -42,7 +39,7 @@ const AboutSection = () => {
               <div className="space-y-4">
                 <div className="relative h-80 w-full">
                   <Image
-                    src="/about-1.jpg"
+                    src="/about-1.png"
                     alt="Beauty salon"
                     fill
                     className="object-cover rounded-sm"
@@ -61,7 +58,7 @@ const AboutSection = () => {
               <div className="pt-12">
                 <div className="relative h-96 w-full">
                   <Image
-                    src="/about-2.jpg"
+                    src="/about-2.png"
                     alt="Makeup products"
                     fill
                     className="object-cover rounded-sm"

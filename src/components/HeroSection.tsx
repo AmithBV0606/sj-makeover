@@ -2,7 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Phone } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -50,14 +52,36 @@ const HeroSection = () => {
           </p>
 
           <div className="flex flex-wrap items-center gap-6">
-            <a href="#about" className="btn-primary">
+            {/* <a href="#about" className="btn-primary">
               DISCOVER MORE
-            </a>
+            </a> */}
 
+            {/* Phone : */}
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full border-2 border-cream/30 flex items-center justify-center">
                 <Phone size={18} className="text-cream" />
               </div>
+              <div>
+                <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
+                  Make Appointment
+                </p>
+                <p className="text-cream font-display text-lg">
+                  +91 9986160243
+                </p>
+              </div>
+            </div>
+
+            {/* Instagram :  */}
+            <div className="flex items-center gap-3">
+              <Link
+                href={"https://www.instagram.com/makeupbysru"}
+                target="_blank"
+              >
+                {" "}
+                <div className="w-12 h-12 rounded-full border-2 border-cream/30 flex items-center justify-center">
+                  <FaInstagram size={18} className="text-cream" />
+                </div>
+              </Link>
               <div>
                 <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
                   Make Appointment
