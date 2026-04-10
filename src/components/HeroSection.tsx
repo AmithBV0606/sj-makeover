@@ -31,7 +31,7 @@ const HeroSection = () => {
         >
           <div className="flex items-center gap-4 mb-6">
             <span className="section-subtitle text-cream/80">
-              Welcome to MakeOverBySru
+              Welcome to Srujana Jois Makeup Studio & Academy
             </span>
             <span className="w-16 h-px bg-cream/40" />
           </div>
@@ -62,7 +62,9 @@ const HeroSection = () => {
                 <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
                   Make Appointment
                 </p>
-                <p className="text-cream font-display text-lg">+91 9986160243</p>
+                <p className="text-cream font-display text-lg">
+                  +91 9986160243
+                </p>
               </div>
             </div>
           </div>
