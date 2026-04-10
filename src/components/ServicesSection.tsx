@@ -6,27 +6,23 @@ import { Scissors, Sparkles, Crown, Heart } from "lucide-react";
 const services = [
   {
     icon: Sparkles,
-    discount: "Disc 15%",
-    title: "Cinematic Makeup",
-    desc: "Professional makeup for film, TV, and special events.",
+    title: "Bridal Makeup",
+    desc: "HD, Airbrush, Traditional & Contemporary Bridal Looks",
   },
   {
     icon: Crown,
-    discount: "Disc 10%",
-    title: "Fashion Makeup",
-    desc: "Runway-ready looks for photoshoots and fashion events.",
+    title: "Makeup",
+    desc: "Pre-Wedding Makeup, Engagement Makeup, Party & Occasion Makeup,  Fashion & Editorial Makeup",
   },
   {
     icon: Heart,
-    discount: "Disc 20%",
-    title: "Bridal Makeup",
-    desc: "Beautiful bridal looks for your special day.",
+    title: "Hairstyle",
+    desc: "Hairstyling & Draping Services.",
   },
   {
     icon: Scissors,
-    discount: "Disc 10%",
-    title: "Hair Style",
-    desc: "Trendy and classic hairstyling for every occasion.",
+    title: "Trails",
+    desc: "Makeup Trials & Consultations",
   },
 ];
 
@@ -36,9 +32,7 @@ const ServicesSection = () => {
       <div className="container mx-auto px-6">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="section-subtitle">Get Beautiful With Us</span>
-          <h2 className="section-title mt-3 mb-6">
-            Highlight your natural beauty with Us
-          </h2>
+          <h2 className="section-title mt-3 mb-6">What We Offer</h2>
           <p className="text-muted-foreground font-body leading-relaxed">
             Discover our range of premium beauty services designed to enhance
             your natural glow and leave you feeling confident and radiant.
@@ -61,9 +55,6 @@ const ServicesSection = () => {
                   className="text-brown-dark group-hover:text-cream transition-colors"
                 />
               </div>
-              <span className="text-olive text-xs font-body font-semibold uppercase tracking-wider">
-                {service.discount}
-              </span>
               <h3 className="font-display text-xl font-semibold text-brown-dark group-hover:text-cream mt-2 mb-3 transition-colors">
                 {service.title}
               </h3>
@@ -85,3 +76,10 @@ const ServicesSection = () => {
 };
 
 export default ServicesSection;
+
+// Bridal Makeup – HD, Airbrush, Traditional & Contemporary Bridal Looks
+// Pre-Wedding & Engagement Makeup
+// Party & Occasion Makeup
+// Fashion & Editorial Makeup
+// Hairstyling & Draping Services
+// Makeup Trials & Consultations

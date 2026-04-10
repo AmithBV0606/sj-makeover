@@ -69,7 +69,7 @@ const HeroSection = () => {
               </Link>
               <div>
                 <p className="text-cream/60 text-xs uppercase tracking-[0.15em] font-body">
-                  Make Appointment
+                  Contact
                 </p>
                 <p className="text-cream font-display text-lg">
                   +91 9986160243
@@ -90,11 +90,9 @@ const HeroSection = () => {
               </Link>
               <div>
                 <p className="text-cream/60 text-md tracking-[0.15em] font-body">
-                  @makeupbysru
+                  Make Appointment
                 </p>
-                <p className="text-cream font-display text-lg">
-                  +91 9986160243
-                </p>
+                <p className="text-cream font-display text-lg">@makeupbysru</p>
               </div>
             </div>
           </div>

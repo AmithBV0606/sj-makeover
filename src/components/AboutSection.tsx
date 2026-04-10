@@ -20,10 +20,23 @@ const AboutSection = () => {
               There is a kind of beauty in imperfection
             </h2>
             <p className="text-muted-foreground font-body leading-relaxed mb-8">
-              At Fabulux, we believe that true beauty comes from enhancing your
-              natural features. Our team of expert cosmetologists and stylists
-              work to bring out the best version of you, using premium products
-              and cutting-edge techniques.
+              I&apos;m Srujana Jois, a certified professional makeup artist
+              (MakeupBySru) based in Bangalore. I began my journey in 2018 and
+              have since had the privilege of working on over 1,000 weddings.
+            </p>
+
+            <p className="text-muted-foreground font-body leading-relaxed mb-8">
+              Whether you envision a classic, traditional, or modern bridal
+              look, our studio is dedicated to bringing your dream to life. I
+              truly believe that every individual is naturally beautiful, and
+              our goal is to enhance that charm in a way that makes you feel
+              confident and radiant.
+            </p>
+
+            <p className="text-muted-foreground font-body leading-relaxed mb-8">
+              At SJ Academy, my team and I use our expertise and artistry to
+              create elegant, personalized looks—ensuring you receive undivided
+              attention and look your absolute best on your special occasion.
             </p>
           </motion.div>
 
@@ -51,7 +64,8 @@ const AboutSection = () => {
                     There is a kind of beauty
                   </h3>
                   <p className="text-cream/60 font-body text-sm leading-relaxed">
-                    We bring out the best version of you with care and precision.
+                    We bring out the best version of you with care and
+                    precision.
                   </p>
                 </div>
               </div>
