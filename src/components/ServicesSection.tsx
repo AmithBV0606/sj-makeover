@@ -1,7 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Scissors, Sparkles, Crown, Heart } from "lucide-react";
+import {
+  Scissors,
+  Sparkles,
+  Crown,
+  Heart,
+  WandSparkles,
+  Brush,
+} from "lucide-react";
 
 const services = [
   {
@@ -17,12 +24,22 @@ const services = [
   {
     icon: Heart,
     title: "Hairstyle",
-    desc: "Hairstyling & Draping Services.",
+    desc: "Hairstyling services.",
   },
   {
     icon: Scissors,
     title: "Trails",
     desc: "Makeup Trials & Consultations",
+  },
+  {
+    icon: WandSparkles,
+    title: "Drape",
+    desc: "Saree Draping & Pre-pleating",
+  },
+  {
+    icon: Brush,
+    title: "Design",
+    desc: "We also offer Nail Art and mehendi",
   },
 ];
 
@@ -39,7 +56,7 @@ const ServicesSection = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, i) => (
             <motion.div
               key={service.title}

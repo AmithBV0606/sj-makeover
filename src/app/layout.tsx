@@ -19,7 +19,7 @@ const jost = Jost({
 });
 
 export const metadata: Metadata = {
-  title: "Fabulux - Premium Beauty & Makeover Services",
+  title: "Srujana Jois Makeup Studio & Academy",
   description:
     "Experience the art of beauty transformation with our expert stylists and premium services tailored just for you.",
 };

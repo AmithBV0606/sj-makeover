@@ -25,7 +25,7 @@ const AppointmentSection = () => {
   };
 
   return (
-    <section id="appointment" className="py-24 bg-brown-dark">
+    <section id="appointment" className="py-24 bg-brown-dark border-b-2 border-cream">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <motion.div

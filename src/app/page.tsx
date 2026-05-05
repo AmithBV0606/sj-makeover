@@ -22,7 +22,7 @@ export default function Home() {
       <CtaBanner />
       <TeamSection />
       <AppointmentSection />
-      <BlogSection />
+      {/* <BlogSection /> */}
       <Footer />
     </div>
   );

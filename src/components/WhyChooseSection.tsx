@@ -1,24 +1,39 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Shield, Star, Palette } from "lucide-react";
+import { Heart, Palette, Gem, Shield, Clock, Smile } from "lucide-react";
 import Image from "next/image";
 
 const features = [
   {
-    icon: Shield,
-    title: "Hygiene and Safety",
-    desc: "We maintain the highest standards of cleanliness and use sterilized, premium-quality tools.",
-  },
-  {
-    icon: Star,
-    title: "Professional Services",
-    desc: "Our certified cosmetologists deliver personalized treatments with years of expertise.",
+    icon: Heart,
+    title: "1000+ Happy Brides & Clients",
+    desc: "A thriving community of brides and clients who've trusted us with their most cherished moments.",
   },
   {
     icon: Palette,
-    title: "Stylish Makeovers",
-    desc: "From subtle enhancements to dramatic transformations, we create looks that turn heads.",
+    title: "Personalized Makeup",
+    desc: "Every look is thoughtfully curated to suit your skin type, outfit, and the essence of your occasion.",
+  },
+  {
+    icon: Gem,
+    title: "Premium, High-End Products",
+    desc: "Only internationally acclaimed, luxury makeup brands that deliver a flawless, lasting finish.",
+  },
+  {
+    icon: Shield,
+    title: "Hygiene & Safety First",
+    desc: "Sanitized tools, single-use applicators, and rigorous hygiene practices for every single client.",
+  },
+  {
+    icon: Clock,
+    title: "On-Time Professional Service",
+    desc: "Punctual arrivals and meticulous preparation, so your big day flows effortlessly from start to finish.",
+  },
+  {
+    icon: Smile,
+    title: "Calm & Stress-Free Experience",
+    desc: "A warm, friendly atmosphere that lets you relax, smile, and truly enjoy every moment of your special day.",
   },
 ];
 
@@ -35,9 +50,7 @@ const WhyChooseSection = () => {
             transition={{ duration: 0.7 }}
           >
             <span className="section-subtitle">The Best Beauty Rituals</span>
-            <h2 className="section-title mt-3 mb-10">
-              We care for the perfectionist in you.
-            </h2>
+            <h2 className="section-title mt-3 mb-10">Why Choose Us</h2>
 
             <div className="space-y-8">
               {features.map((f, i) => (
@@ -72,9 +85,9 @@ const WhyChooseSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <div className="relative h-[600px] w-full">
+            <div className="relative h-[650px] w-full">
               <Image
-                src="/choose-us.jpg"
+                src="/why-us.png"
                 alt="Professional makeup artist"
                 fill
                 className="object-cover rounded-sm"

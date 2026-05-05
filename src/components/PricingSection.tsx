@@ -35,21 +35,21 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-24 bg-cream-dark">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <div className="grid lg:grid-cols-2 gap-16 items-stretch">
           {/* Image + Stats */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative"
+            className="relative h-full"
           >
-            <div className="relative h-[500px] w-full">
+            <div className="relative min-h-[650px] w-full">
               <Image
                 src="/pricing-bg.jpg"
                 alt="Beauty treatment"
                 fill
-                className="object-cover rounded-sm"
+                className="object-cover object-[center_25%] rounded-sm"
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
               <div className="absolute bottom-0 left-0 right-0 bg-brown-dark/90 backdrop-blur-sm p-8">
@@ -75,7 +75,7 @@ const PricingSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="section-subtitle">Treatment & Prices</span>
+            <span className="section-subtitle">Pricing</span>
             <h2 className="section-title mt-3 mb-10">
               Because being beautiful should never harm you
             </h2>
