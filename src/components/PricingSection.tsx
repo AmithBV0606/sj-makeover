@@ -5,35 +5,30 @@ import Image from "next/image";
 
 const treatments = [
   {
-    name: "Face Treatments",
-    desc: "Complete facial care and rejuvenation",
-    price: "$50",
+    name: "Pre-Bridal Skin Prep",
+    desc: "Skin priming and care to get your complexion wedding-ready",
   },
   {
-    name: "Facial & Massage",
-    desc: "Relaxing facial with therapeutic massage",
-    price: "$50",
+    name: "Hydrating Facial",
+    desc: "Deep-hydration facial for a fresh, radiant glow",
   },
   {
-    name: "Hair Treatment",
-    desc: "Deep conditioning and hair restoration",
-    price: "$50",
+    name: "Lash Lift & Tint",
+    desc: "Curl and tint for fuller-looking, defined lashes",
   },
   {
-    name: "Manicure & Pedicure",
-    desc: "Complete nail care and styling",
-    price: "$50",
+    name: "Brow Shaping & Tinting",
+    desc: "Precision shaping and tint for perfectly framed brows",
   },
   {
-    name: "Hand/Nail Moisturizer",
-    desc: "Premium hand and nail care treatment",
-    price: "$50",
+    name: "Skin Polishing & Cleanup",
+    desc: "Gentle exfoliation and cleanup for smooth, even skin",
   },
 ];
 
-const PricingSection = () => {
+const TreatmentsSection = () => {
   return (
-    <section id="pricing" className="py-24 bg-cream-dark">
+    <section id="treatments" className="py-24 bg-cream-dark">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-stretch">
           {/* Image + Stats */}
@@ -75,7 +70,7 @@ const PricingSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="section-subtitle">Pricing</span>
+            <span className="section-subtitle">Treatments</span>
             <h2 className="section-title mt-3 mb-10">
               Because being beautiful should never harm you
             </h2>
@@ -88,19 +83,14 @@ const PricingSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="flex items-center justify-between py-5 border-b border-border group cursor-pointer"
+                  className="py-5 border-b border-border group cursor-pointer"
                 >
-                  <div>
-                    <h3 className="font-display text-lg font-semibold text-brown-dark group-hover:text-olive transition-colors">
-                      {t.name}
-                    </h3>
-                    <p className="text-muted-foreground font-body text-sm">
-                      {t.desc}
-                    </p>
-                  </div>
-                  <span className="text-2xl font-display font-bold text-brown-dark shrink-0 ml-4">
-                    {t.price}
-                  </span>
+                  <h3 className="font-display text-lg font-semibold text-brown-dark group-hover:text-olive transition-colors">
+                    {t.name}
+                  </h3>
+                  <p className="text-muted-foreground font-body text-sm">
+                    {t.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -111,4 +101,4 @@ const PricingSection = () => {
   );
 };
 
-export default PricingSection;
+export default TreatmentsSection;

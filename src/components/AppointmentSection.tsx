@@ -3,6 +3,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
+// Studio WhatsApp number in international format (no "+" or spaces) for wa.me links.
+const WHATSAPP_NUMBER = "919986160243";
+
+const treatments = [
+  { value: "cinematic", label: "Cinematic Makeup" },
+  { value: "fashion", label: "Fashion Makeup" },
+  { value: "bridal", label: "Bridal Makeup" },
+  { value: "hair", label: "Hair Style" },
+  { value: "facial", label: "Facial & Massage" },
+];
+
 const AppointmentSection = () => {
   const [formData, setFormData] = useState({
     firstName: "",
@@ -11,10 +22,45 @@ const AppointmentSection = () => {
     treatment: "",
     message: "",
   });
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you! Your appointment request has been submitted.");
+
+    const firstName = formData.firstName.trim();
+    const lastName = formData.lastName.trim();
+    const message = formData.message.trim();
+
+    // Validate phone: keep digits only and require a plausible length.
+    const phoneDigits = formData.phone.replace(/\D/g, "");
+    if (phoneDigits.length < 10) {
+      setError("Please enter a valid phone number (at least 10 digits).");
+      return;
+    }
+    if (!firstName || !lastName || !formData.treatment) {
+      setError("Please fill in your name and select a treatment.");
+      return;
+    }
+    setError("");
+
+    const treatmentLabel =
+      treatments.find((t) => t.value === formData.treatment)?.label ??
+      formData.treatment;
+
+    const text = [
+      "Hello Srujana Jois Makeup Studio! I'd like to book an appointment.",
+      "",
+      `Name: ${firstName} ${lastName}`,
+      `Phone: ${formData.phone.trim()}`,
+      `Treatment: ${treatmentLabel}`,
+      ...(message ? [`Message: ${message}`] : []),
+    ].join("\n");
+
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+      text
+    )}`;
+    window.open(url, "_blank", "noopener,noreferrer");
+
     setFormData({
       firstName: "",
       lastName: "",
@@ -98,21 +144,15 @@ const AppointmentSection = () => {
               <option value="" className="text-brown-dark">
                 Select Treatment *
               </option>
-              <option value="cinematic" className="text-brown-dark">
-                Cinematic Makeup
-              </option>
-              <option value="fashion" className="text-brown-dark">
-                Fashion Makeup
-              </option>
-              <option value="bridal" className="text-brown-dark">
-                Bridal Makeup
-              </option>
-              <option value="hair" className="text-brown-dark">
-                Hair Style
-              </option>
-              <option value="facial" className="text-brown-dark">
-                Facial & Massage
-              </option>
+              {treatments.map((t) => (
+                <option
+                  key={t.value}
+                  value={t.value}
+                  className="text-brown-dark"
+                >
+                  {t.label}
+                </option>
+              ))}
             </select>
             <textarea
               placeholder="Message"
@@ -123,8 +163,13 @@ const AppointmentSection = () => {
               }
               className="w-full bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors resize-none"
             />
+            {error && (
+              <p className="text-destructive-foreground bg-destructive/80 px-4 py-2 font-body text-sm">
+                {error}
+              </p>
+            )}
             <button type="submit" className="btn-accent w-full sm:w-auto">
-              Submit
+              Book via WhatsApp
             </button>
           </motion.form>
         </div>

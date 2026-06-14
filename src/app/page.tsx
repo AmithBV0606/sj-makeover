@@ -3,11 +3,9 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
-import PricingSection from "@/components/PricingSection";
+import TreatmentsSection from "@/components/PricingSection";
 import CtaBanner from "@/components/CtaBanner";
-import TeamSection from "@/components/TeamSection";
 import AppointmentSection from "@/components/AppointmentSection";
-import BlogSection from "@/components/BlogSection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,11 +16,9 @@ export default function Home() {
       <AboutSection />
       <ServicesSection />
       <WhyChooseSection />
-      <PricingSection />
       <CtaBanner />
-      <TeamSection />
+      <TreatmentsSection />
       <AppointmentSection />
-      {/* <BlogSection /> */}
       <Footer />
     </div>
   );

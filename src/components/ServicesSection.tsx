@@ -1,49 +1,66 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Scissors,
   Sparkles,
   Crown,
-  Heart,
   WandSparkles,
-  Brush,
+  Camera,
+  Shirt,
+  X,
 } from "lucide-react";
 
 const services = [
   {
     icon: Sparkles,
-    title: "Bridal Makeup",
-    desc: "HD, Airbrush, Traditional & Contemporary Bridal Looks",
+    title: "Bridal Makeup & Styling",
+    desc: "Timeless, camera-ready bridal looks with complete styling for your special day.",
   },
   {
     icon: Crown,
-    title: "Makeup",
-    desc: "Pre-Wedding Makeup, Engagement Makeup, Party & Occasion Makeup,  Fashion & Editorial Makeup",
+    title: "Luxury Party Makeup",
+    desc: "Glamorous, statement-making makeup for parties and celebrations.",
   },
   {
-    icon: Heart,
-    title: "Hairstyle",
-    desc: "Hairstyling services.",
-  },
-  {
-    icon: Scissors,
-    title: "Trails",
-    desc: "Makeup Trials & Consultations",
+    icon: Camera,
+    title: "Editorial & Fashion Makeup",
+    desc: "Bold, creative looks crafted for runways, shoots, and editorials.",
   },
   {
     icon: WandSparkles,
-    title: "Drape",
-    desc: "Saree Draping & Pre-pleating",
+    title: "HD & Airbrush Makeup",
+    desc: "Flawless, long-lasting HD and Airbrush finishes for every occasion.",
   },
   {
-    icon: Brush,
-    title: "Design",
-    desc: "We also offer Nail Art and mehendi",
+    icon: Scissors,
+    title: "Hair Styling & Saree Draping",
+    desc: "Elegant hairstyling paired with expert saree draping.",
+  },
+  {
+    icon: Shirt,
+    title: "Groom Styling",
+    desc: "Complete grooming and styling so the groom looks his sharpest.",
   },
 ];
 
+const moreServices = [
+  "Bridal Jewellery Rental",
+  "Nail Art & Nail Extensions",
+  "Mehendi (Henna Art)",
+  "Floral Art",
+  "Pre-Pleating Services",
+  "Saree Draping Workshop",
+  "Self-Makeup Workshops",
+  "Professional Makeup & Hair Courses",
+  "Advance Masterclasses",
+  "Portfolio & Brand Shoot Makeup",
+];
+
 const ServicesSection = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <section id="services" className="py-24 bg-cream-dark">
       <div className="container mx-auto px-6">
@@ -83,20 +100,66 @@ const ServicesSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <a href="#pricing" className="btn-outline">
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            className="btn-outline"
+          >
             View All Services
-          </a>
+          </button>
         </div>
       </div>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            onClick={() => setOpen(false)}
+            className="fixed inset-0 z-50 flex items-center justify-center bg-brown-dark/60 backdrop-blur-sm p-6"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+              role="dialog"
+              aria-modal="true"
+              aria-label="More services"
+              className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-background rounded-sm p-8 sm:p-10"
+            >
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                aria-label="Close"
+                className="absolute top-5 right-5 text-brown-dark/60 hover:text-brown-dark transition-colors"
+              >
+                <X size={22} />
+              </button>
+
+              <span className="section-subtitle">Explore Everything</span>
+              <h3 className="section-title mt-3 mb-8">More Services</h3>
+
+              <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-3">
+                {moreServices.map((name) => (
+                  <li
+                    key={name}
+                    className="flex items-start gap-3 py-1 font-body text-brown-dark"
+                  >
+                    <Sparkles size={16} className="text-olive shrink-0 mt-1" />
+                    <span>{name}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
 
 export default ServicesSection;
-
-// Bridal Makeup – HD, Airbrush, Traditional & Contemporary Bridal Looks
-// Pre-Wedding & Engagement Makeup
-// Party & Occasion Makeup
-// Fashion & Editorial Makeup
-// Hairstyling & Draping Services
-// Makeup Trials & Consultations

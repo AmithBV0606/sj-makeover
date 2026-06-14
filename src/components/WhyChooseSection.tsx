@@ -39,7 +39,7 @@ const features = [
 
 const WhyChooseSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="why-us" className="py-24 bg-background">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text */}
