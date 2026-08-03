@@ -2,17 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-
-// Studio WhatsApp number in international format (no "+" or spaces) for wa.me links.
-const WHATSAPP_NUMBER = "919986160243";
-
-const treatments = [
-  { value: "cinematic", label: "Cinematic Makeup" },
-  { value: "fashion", label: "Fashion Makeup" },
-  { value: "bridal", label: "Bridal Makeup" },
-  { value: "hair", label: "Hair Style" },
-  { value: "facial", label: "Facial & Massage" },
-];
+import { treatments } from "@/lib/treatments";
 
 const AppointmentSection = () => {
   const [formData, setFormData] = useState({
@@ -23,8 +13,16 @@ const AppointmentSection = () => {
     message: "",
   });
   const [error, setError] = useState("");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success">(
+    "idle"
+  );
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const updateField = (field: keyof typeof formData, value: string) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    if (status === "success") setStatus("idle");
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const firstName = formData.firstName.trim();
@@ -42,32 +40,40 @@ const AppointmentSection = () => {
       return;
     }
     setError("");
+    setStatus("submitting");
 
-    const treatmentLabel =
-      treatments.find((t) => t.value === formData.treatment)?.label ??
-      formData.treatment;
-
-    const text = [
-      "Hello Srujana Jois Makeup Studio! I'd like to book an appointment.",
-      "",
-      `Name: ${firstName} ${lastName}`,
-      `Phone: ${formData.phone.trim()}`,
-      `Treatment: ${treatmentLabel}`,
-      ...(message ? [`Message: ${message}`] : []),
-    ].join("\n");
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-      text
-    )}`;
-    window.open(url, "_blank", "noopener,noreferrer");
-
-    setFormData({
-      firstName: "",
-      lastName: "",
-      phone: "",
-      treatment: "",
-      message: "",
-    });
+    try {
+      const res = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          phone: formData.phone.trim(),
+          treatment: formData.treatment,
+          message,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        throw new Error(data.error ?? "Something went wrong.");
+      }
+      setStatus("success");
+      setFormData({
+        firstName: "",
+        lastName: "",
+        phone: "",
+        treatment: "",
+        message: "",
+      });
+    } catch (err) {
+      setStatus("idle");
+      setError(
+        err instanceof Error
+          ? err.message
+          : "Failed to send. Please try again."
+      );
+    }
   };
 
   return (
@@ -107,9 +113,7 @@ const AppointmentSection = () => {
                 placeholder="First Name *"
                 required
                 value={formData.firstName}
-                onChange={(e) =>
-                  setFormData({ ...formData, firstName: e.target.value })
-                }
+                onChange={(e) => updateField("firstName", e.target.value)}
                 className="w-full bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors"
               />
               <input
@@ -117,9 +121,7 @@ const AppointmentSection = () => {
                 placeholder="Last Name *"
                 required
                 value={formData.lastName}
-                onChange={(e) =>
-                  setFormData({ ...formData, lastName: e.target.value })
-                }
+                onChange={(e) => updateField("lastName", e.target.value)}
                 className="w-full bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors"
               />
             </div>
@@ -128,17 +130,13 @@ const AppointmentSection = () => {
               placeholder="Telephone *"
               required
               value={formData.phone}
-              onChange={(e) =>
-                setFormData({ ...formData, phone: e.target.value })
-              }
+              onChange={(e) => updateField("phone", e.target.value)}
               className="w-full bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors"
             />
             <select
               required
               value={formData.treatment}
-              onChange={(e) =>
-                setFormData({ ...formData, treatment: e.target.value })
-              }
+              onChange={(e) => updateField("treatment", e.target.value)}
               className="w-full bg-cream/10 border border-cream/20 text-cream/70 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors"
             >
               <option value="" className="text-brown-dark">
@@ -158,9 +156,7 @@ const AppointmentSection = () => {
               placeholder="Message"
               rows={4}
               value={formData.message}
-              onChange={(e) =>
-                setFormData({ ...formData, message: e.target.value })
-              }
+              onChange={(e) => updateField("message", e.target.value)}
               className="w-full bg-cream/10 border border-cream/20 text-cream placeholder:text-cream/40 px-5 py-3 font-body text-sm focus:outline-none focus:border-olive transition-colors resize-none"
             />
             {error && (
@@ -168,8 +164,18 @@ const AppointmentSection = () => {
                 {error}
               </p>
             )}
-            <button type="submit" className="btn-accent w-full sm:w-auto">
-              Book via WhatsApp
+            {status === "success" && (
+              <p className="text-cream bg-olive/80 px-4 py-2 font-body text-sm">
+                Thank you! Your enquiry has been sent — we&apos;ll get back to
+                you shortly.
+              </p>
+            )}
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="btn-accent w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
+            >
+              {status === "submitting" ? "Sending..." : "Book Appointment"}
             </button>
           </motion.form>
         </div>
