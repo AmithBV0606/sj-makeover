@@ -94,6 +94,11 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes marquee-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
 * {
   border-color: hsl(var(--border));
 }
@@ -109,6 +114,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @layer components {
+  .animate-marquee-up {
+    animation: marquee-up 10s linear infinite;
+  }
+
   .section-subtitle {
     @apply text-sm uppercase tracking-[0.3em] text-brown-light font-body font-medium;
   }

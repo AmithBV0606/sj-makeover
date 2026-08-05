@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import WhyChooseSection from "@/components/WhyChooseSection";
-import TreatmentsSection from "@/components/PricingSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import CtaBanner from "@/components/CtaBanner";
 import AppointmentSection from "@/components/AppointmentSection";
 import Footer from "@/components/Footer";
@@ -17,7 +17,7 @@ export default function Home() {
       <ServicesSection />
       <WhyChooseSection />
       <CtaBanner />
-      <TreatmentsSection />
+      <TestimonialsSection />
       <AppointmentSection />
       <Footer />
     </div>
